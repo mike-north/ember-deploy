@@ -1,7 +1,7 @@
 import { Promise } from 'rsvp';
 
 export function initialize(app) {
-  const { geolocation } = navigator;
+  const geolocation = typeof navigator !== 'undefined' ? navigator.geolocation : null;
   // app.deferReadiness(); // PAUSE
   
   let locPromise = typeof FastBoot !== 'undefined'
