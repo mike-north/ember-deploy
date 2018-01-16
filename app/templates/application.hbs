@@ -1,0 +1,15 @@
+<nav class="navbar">
+  {{link-to 'Comment.ly' 'posts.index' classNames='brand'}}
+    <div class="pull-right">
+      {{currentUser.email}}
+      {{#unless (is-authenticated)}}
+        {{link-to 'Login' 'auth.login' class='btn'}}
+      {{else}}
+        <button class="btn" onclick={{route-action 'logout'}}>Logout</button>
+      {{/unless}}
+    </div>
+</nav>
+<p style="z-index: 9999; position: fixed; top: 0; width: 100%; height: 20px; color: white">
+  LAT: {{loc.lat}}, LNG: {{loc.lng}}
+</p>
+{{outlet}}
