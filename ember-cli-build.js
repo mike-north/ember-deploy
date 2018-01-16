@@ -29,7 +29,7 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
   });
-  app.import('vendor/math.js');
+  // app.import('vendor/math.js');
  
   return new MyPlugin(app.toTree());
 };
