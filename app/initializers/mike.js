@@ -4,7 +4,9 @@ export function initialize(app) {
   const { geolocation } = navigator;
   // app.deferReadiness(); // PAUSE
   
-  let locPromise = typeof FastBoot !== 'undefined' ? Promise.resolve({ lat: 0, lng: 0}) : new Promise((res) => {
+  let locPromise = typeof FastBoot !== 'undefined'
+    ? Promise.resolve({ lat: 0, lng: 0})
+    : new Promise((res) => {
     // let timeout = setTimeout(rej, 5000);
     geolocation.getCurrentPosition((pos) => {
         let {

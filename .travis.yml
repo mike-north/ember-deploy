@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 'stable'
+- stable
 sudo: false
 dist: trusty
 addons:
@@ -10,7 +10,6 @@ cache:
 env:
   global:
   - JOBS=1
-
 before_install:
 - npm install -g bower
 - curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -20,3 +19,10 @@ install:
 - yarn install --non-interactive
 script:
 - yarn test
+deploy:
+  provider: heroku
+  api_key:
+    secure: oSzPWb2yTriGxBplVNrIFWsi4R+HvB0eIChnT8awSpPC2I1ritDTzdBmClwolZodmHSbqaKqKkRqZPkdRHnA8x/qSA+TgDIMHEr8xIEv7eV5SDRZLC5XN2eccnXQbTe6c2f2ugSb58dB0JSm5Ynixi0nzkLUn+kkVqK+7QxR7+kHH+chAwZrqh4k8sr7y0CLiES2DJZj62petalGtYToEVjp8EcupZ+jVZLUazwZ08ATTbyhogSsCqwZnlOQYA+2jepcrbTno5DTe/exlS8Co4zgb/VUSRbOjiYZtVaXs4BmfstTOcpWmkuHx04ZdOL0b6jPBeVID6lM5NAYg/ZDv0YJCtJ3rBed06/gpW2u8Criz8koI5QOIUPkRFr/jqzga0BPH/GRVYvX130LGtqs/7Irw7u+TWPWNubWZPer5RUXRZtgA3FO2GPhNX14EniK57wF2UdybnS5Cax3u4SqW4r/Qs0mxuYworKMsQpt3Ubmu9QnBJU2HF7RcZGI7DVyz7it8aNZg1jAG8nQYO9GXolAm6HTAzdh9oLzdCDYpgyATJKz/tBuU+bKBFGUsqyasLyMrNEoHfRkck3SXG4/VlNmBaBL7dp27Nm8BTqXwLP4pvP0cHyDPdS11Um4LZsimg0dpjIHWuE2sima8gkld5AB24Ikr8Rao+bPvjkY/8g=
+  app: protected-inlet-21531
+  on:
+    repo: mike-north/ember-deploy
